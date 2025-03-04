@@ -51,5 +51,6 @@ build {
 
   tags = {
     Name = "packer-ansible-nginx"
+    Environment = "labweek9"
   }
 }
