@@ -48,9 +48,4 @@ build {
       "ANSIBLE_HOST_KEY_CHECKING=False"
     ]
   }
-
-  tags = {
-    Name = "packer-ansible-nginx"
-    Environment = "labweek9"
-  }
 }
