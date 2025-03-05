@@ -16,7 +16,7 @@ packer {
 source "amazon-ebs" "ubuntu" {
   # COMPLETE ME
   # add configuration to use Ubuntu 24.04 image as source image
-  ami_filter {
+  source_ami_filter {
     filters = {
       name                = "ubuntu/images/hvm-ssd/ubuntu-focal-24.04-amd64-server-*"
       root-device-type    = "ebs"
