@@ -30,7 +30,7 @@ source "amazon-ebs" "ubuntu" {
     most_recent = true
   }
 
-  ssh_username = var.ssh_username
+  ssh_username = "ubuntu"
 }
 
 build {
@@ -43,9 +43,6 @@ build {
 
   provisioner "ansible" {
     playbook_file = "../ansible/playbook.yml"
-
-    user = var.ssh_username
-
     environment_vars = [
       "ANSIBLE_HOST_KEY_CHECKING=False"
     ]
