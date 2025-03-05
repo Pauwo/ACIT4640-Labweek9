@@ -28,6 +28,8 @@ source "amazon-ebs" "ubuntu" {
     owners      = ["099720109477"] # Canonical (official Ubuntu AMIs)
     most_recent = true
   }
+
+  ssh_username = var.ssh_username
 }
 
 build {
