@@ -16,18 +16,20 @@ packer {
 source "amazon-ebs" "ubuntu" {
   # COMPLETE ME
   # add configuration to use Ubuntu 24.04 image as source image
+  region        = "us-west-2"
+  instance_type = "t2.micro"
+
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-focal-24.04-amd64-server-*"
+      name                = "ubuntu/images/hvm-ssd/ubuntu-jammy-24.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
-    owners      = ["099720109477"] # Canonical
+    owners      = ["099720109477"] # Canonical (official Ubuntu AMIs)
     most_recent = true
   }
 
-  region      = "us-west-2"
-  instance_type = "t2.micro"
+  communicator = "ssh"
   ssh_username = var.ssh_username
 }
 
