@@ -43,8 +43,5 @@ build {
 
   provisioner "ansible" {
     playbook_file = "../ansible/playbook.yml"
-    environment_vars = [
-      "ANSIBLE_HOST_KEY_CHECKING=False"
-    ]
   }
 }
