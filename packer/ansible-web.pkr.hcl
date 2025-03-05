@@ -18,6 +18,7 @@ source "amazon-ebs" "ubuntu" {
   # add configuration to use Ubuntu 24.04 image as source image
   region        = "us-west-2"
   instance_type = "t2.micro"
+  ami_name      = "packer-ansible-nginx"
 
   source_ami_filter {
     filters = {
