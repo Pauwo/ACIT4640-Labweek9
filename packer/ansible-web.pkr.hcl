@@ -39,7 +39,20 @@ build {
   # - use the source image specified above
   # - use the "ansible" provisioner to run the playbook in the ansible directory
   # - use the ssh user-name specified in the "variables.pkr.hcl" file
-  sources = ["source.amazon-ebs.ubuntu"]
+  name = "packer-4640-labweek9"
+  sources = [
+    "source.amazon-ebs.ubuntu"
+  ]
+	
+	provisioner "shell" {
+		inline = [
+			"echo installing ansible",
+			"sudo apt update",
+			"sudo apt install software-properties-common",      
+			"sudo add-apt-repository --yes --update ppa:ansible/ansible",
+		    "sudo apt install -y ansible",
+		]
+	}
 
   provisioner "ansible" {
     playbook_file = "../ansible/playbook.yml"
