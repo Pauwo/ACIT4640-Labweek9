@@ -40,6 +40,13 @@ build {
   # - use the ssh user-name specified in the "variables.pkr.hcl" file
   name = "packer-4640-labweek9"
   sources = ["source.amazon-ebs.ubuntu"]
+
+  provisioner "shell" {
+    inline = [
+      "sudo usermod -aG sudo ubuntu",  # Add user to sudo group
+      "echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/ubuntu"  # Grant sudo without password prompt
+    ]
+  }
 	
   provisioner "ansible" {
     playbook_file = "../ansible/playbook.yml"
