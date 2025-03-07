@@ -22,12 +22,13 @@ source "amazon-ebs" "ubuntu" {
 
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-jammy-24.04-amd64-server-*"
+      name = "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
-    owners      = ["099720109477"] # Canonical (official Ubuntu AMIs)
     most_recent = true
+    owners      = ["099720109477"] 
+	}
   }
 
   ssh_username = "ubuntu"
