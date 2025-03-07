@@ -56,7 +56,7 @@ build {
   provisioner "ansible" {
     playbook_file = "../ansible/playbook.yml"
     user          = "ubuntu"
-	  ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False"]
-	  extra_arguments  = ["--extra-vars", "-vvv"]
+    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False"]
+    extra_arguments  = ["-vvv"]
   }
 }
