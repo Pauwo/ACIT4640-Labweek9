@@ -41,9 +41,18 @@ build {
   name = "packer-4640-labweek9"
   sources = ["source.amazon-ebs.ubuntu"]
 	
-  provisioner "ansible" {
-    playbook_file = "../ansible/playbook.yml"
-    user          = "ubuntu"
-    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False"]
-  }
+provisioner "ansible" {
+  playbook_file   = "../ansible/playbook.yml"
+  user            = "ubuntu" # Hardcode instead of variable for simplicity
+  ansible_env_vars = [
+    "ANSIBLE_HOST_KEY_CHECKING=False",
+    "ANSIBLE_REMOTE_TEMP=/tmp/.ansible" # Fixes temp directory permission issues
+  ]
+  use_proxy       = false
+  extra_arguments = [
+    "--become", # Force privilege escalation
+    "-vvv"      # Enable verbose logging
+  ]
+}
+
 }
