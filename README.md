@@ -1,3 +1,12 @@
-# 4640-w9-lab-start-w25
+# Lab Week 9
 
-See lab instructions on D2L
+## Prerequisites
+- AWS account with CLI configured
+- SSH key pair imported using `import_lab_key` script
+
+## Instructions
+
+1. **Import SSH Key**:
+   ```bash
+   chmod +x import_lab_key
+   ./import_lab_key
