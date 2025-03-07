@@ -43,16 +43,6 @@ build {
     "source.amazon-ebs.ubuntu"
   ]
 	
-	provisioner "shell" {
-		inline = [
-			"echo installing ansible",
-			"sudo apt update",
-			"sudo apt install software-properties-common",      
-			"sudo add-apt-repository --yes --update ppa:ansible/ansible",
-		    "sudo apt install -y ansible",
-		]
-	}
-
   provisioner "ansible" {
     playbook_file = "../ansible/playbook.yml"
     user          = "ubuntu"
