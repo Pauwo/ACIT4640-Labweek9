@@ -47,6 +47,6 @@ build {
     playbook_file = "../ansible/playbook.yml"
     user          = "ubuntu"
     ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False"]
-    extra_arguments  = ["-vvv"]
+    extra_arguments  = ["-v"]
   }
 }
