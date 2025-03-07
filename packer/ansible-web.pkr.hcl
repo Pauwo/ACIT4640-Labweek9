@@ -4,11 +4,11 @@ packer {
     # add necessary plugins for ansible and aws
     amazon = {
       source  = "github.com/hashicorp/amazon"
-      version = ">= 1.0.0"
+      version = ">= 1.3"
     }
     ansible = {
       source  = "github.com/hashicorp/ansible"
-      version = ">= 1.0.0"
+      version = ">= 1.1.2"
     }
   }
 }
@@ -39,14 +39,11 @@ build {
   # - use the "ansible" provisioner to run the playbook in the ansible directory
   # - use the ssh user-name specified in the "variables.pkr.hcl" file
   name = "packer-4640-labweek9"
-  sources = [
-    "source.amazon-ebs.ubuntu"
-  ]
+  sources = ["source.amazon-ebs.ubuntu"]
 	
   provisioner "ansible" {
     playbook_file = "../ansible/playbook.yml"
     user          = "ubuntu"
     ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False"]
-    extra_arguments  = ["-v"]
   }
 }
