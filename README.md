@@ -8,5 +8,4 @@
 
 1. **Import SSH Key**:
    ```bash
-   chmod +x import_lab_key
    ./import_lab_key
